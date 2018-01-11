@@ -1,0 +1,63 @@
+.App {
+  text-align: center;
+  margin: 20%;
+ 
+}
+
+.App-loading {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.disabled_button{
+  background-color: #b5b8bb;
+  border-color: #b5b8bb;
+}
+.disabled_button:hover{
+  background-color: #b5b8bb;
+  border-color: #b5b8bb;
+}
+.search_data{
+  margin-top: 10%;
+}
+.legend{
+  width: 3%;
+  height: 10px;
+  display: inline-table;
+  margin-left: 15px;
+  margin-right: 2px;
+}
+.green{
+  background: green;
+}
+.red{
+  background: #a94442;
+}
+.redText{
+  color: #a94442;
+}
+.orange{
+  background: orange;
+}
+.logout{
+  color:#337ab7;
+  cursor: pointer;
+}
+.pagination{
+  width: 25px;
+  height: 25px;
+  background: #337ab7;
+  color: white;
+  display: inline-table;
+  margin: 3px;
+  text-align: center;
+  cursor: pointer;
+  line-height: 25px;
+}
+.active{
+  background: gray;
+}
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
