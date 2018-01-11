@@ -73,6 +73,10 @@ export default class Dashboard extends Component {
            {
               this.setState({searchData:response.results,searchStatus:false,searchCount:response.count,page:page,searchtext:searchtext})
            }
+           else
+           {
+              this.setState({searchData:'',searchStatus:false,searchCount:response.count,page:page,searchtext:searchtext})
+           }
            
           }
          )
@@ -84,18 +88,18 @@ export default class Dashboard extends Component {
     var SearchClass = "App";
     var rowClass = "btn-warning"
     var Pagination = '';
-
+    var TableData =  'No Result Found!!!';
     if(this.state.searchStatus)
     {
-      var TableData =  <img src={loading} className="App-loading" alt="loading" />;
+      
+      TableData =  <img src={loading} className="App-loading" alt="loading" />;
     }
     else
     {
-      var TableData =  'No Result Found!!!';
-    }
     
     if(this.state.searchData.length>0)
     {
+
     var maxPage = Math.floor(this.state.searchCount/10)+(this.state.searchCount%10>0?1:0);
  
     SearchClass = "App search_data"
@@ -173,6 +177,11 @@ export default class Dashboard extends Component {
 
     
     }
+    else
+    {
+      TableData =  'No Result Found!!!';
+    }
+    }
     var tokenData = JSON.parse(hash.decrypt(sessionStorage.getItem('token')));
     var messageBox = '';
     if(this.state.message!='')
@@ -194,7 +203,7 @@ export default class Dashboard extends Component {
       <login/>
         <FormGroup>
           <InputGroup>
-            <input className="form-control" type="text" placeholder="Search" name="search" ref="search" />
+            <input className="form-control" type="text" placeholder="Search" name="search" ref="search" onChange={this.search.bind(this,1)}/>
             <InputGroup.Addon onClick={this.search.bind(this,1)}>
               <Glyphicon glyph="search" />
             </InputGroup.Addon>
